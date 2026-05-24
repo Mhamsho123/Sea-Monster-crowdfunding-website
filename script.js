@@ -51,3 +51,22 @@ document.getElementById("total-games").textContent = totalGames
 document.getElementById("total-raised").textContent = totalRaised
 
 document.getElementById("unfunded-games").textContent = unfundedGames.length
+
+document.getElementById("funded-btn").addEventListener("click", () => {
+
+    const funded = games.filter(game => {
+        return game.raised >= game.goal
+    })
+
+    renderGames(funded)
+})
+
+document.getElementById("unfunded-btn").addEventListener("click", () => {
+
+    renderGames(unfundedGames)
+})
+
+document.getElementById("all-btn").addEventListener("click", () => {
+
+    renderGames(games)
+})
